@@ -1,0 +1,42 @@
+14
+Atlanta
+Birmingham
+Charlotte
+Chattanooga
+Charleston(WV)
+Cincinnati
+Columbus
+Indianapolis
+Knoxville
+Lexington
+Louisville 
+Memphis 
+Nashville 
+StLouis
+26
+Atlanta Birmingham 192
+Atlanta Charlotte 245
+Atlanta Chattanooga 118
+Birmingham Chattanooga 148
+Birmingham Memphis 234
+Birmingham Nashville 192
+Charlotte Charleston(WV) 264
+Charlotte Knoxville 231
+Chattanooga Knoxville 112
+Chattanooga Nashville 133
+Charleston(WV) Columbus 162
+Charleston(WV) Lexington 175
+Cincinnati Columbus 107
+Cincinnati Indianapolis 108
+Cincinnati Lexington 83
+Cincinnati Louisville 99
+Columbus Indianapolis 175
+Indianapolis Louisville 114
+Indianapolis StLouis 242
+Knoxville Lexington 170
+Knoxville Nashville 180
+Lexington Louisville 78
+Louisville Nashville 174
+Memphis Nashville 212
+Memphis StLouis 283
+Nashville StLouis 307
