@@ -1,6 +1,7 @@
-//
-// Created by Sarah on 12/1/2018.
-//
+// Sarah Jorissen
+// CSCI 3250
+// Programming Assignment 6
+// CPP file implementing functions from Graph.hpp
 
 #include "Graph.hpp"
 #include <fstream>
@@ -42,11 +43,8 @@ Graph::~Graph() {
     deallocate();
 }
 
-// Overloaded assignment operator implementation
-//const Graph::Graph & operator=(const Graph &graph) {
-//
-//}
-
+// Stores the weight (distance) between two cities in its appropriate
+// place in matrix
 bool Graph::addEdge (int sourceVertex, int targetVertex, int weight) {
     if(sourceVertex > mNumVertices || sourceVertex < 0) {
         return false;
@@ -64,6 +62,8 @@ bool Graph::addEdge (int sourceVertex, int targetVertex, int weight) {
     }
 }
 
+// Given a starting city, calculates the shortest path to every other
+// city in the matrix
 void Graph::shortestPaths (int sourceVertex, int currDist[], int predecessor[]) {
     bool toBeChecked[mNumVertices];
 
@@ -77,10 +77,7 @@ void Graph::shortestPaths (int sourceVertex, int currDist[], int predecessor[]) 
 
     currDist[sourceVertex] = 0;
 
-    //v <-vertex intoBeCheckedwith minimalcurrDist[v]
-
     while(any(toBeChecked, mNumVertices)) {
-        //v <-vertex in toBeChecked with minimal currDist[v]
         int toVisit = -1;
         int smallestChecked = MAX_WEIGHT;
         for (int i = 0; i < mNumVertices; i++) {
@@ -92,7 +89,6 @@ void Graph::shortestPaths (int sourceVertex, int currDist[], int predecessor[]) 
             }
         }
         toBeChecked[toVisit] = false;
-        //for all vertices u adjacent to v and in toBeChecked do
         for (int u = 0; u < mNumVertices; u++) {
             if (toBeChecked[u] && is_adjacent(mMatrix, toVisit, u, MAX_WEIGHT)) {
                 if (currDist[u] > currDist[toVisit] + mMatrix[u][toVisit]) {
@@ -104,6 +100,7 @@ void Graph::shortestPaths (int sourceVertex, int currDist[], int predecessor[]) 
     }
 }
 
+// Creates a copy of a matrix into a new matrix
 void Graph::copyFrom(const Graph &graph) {
     mNumVertices = graph.mNumVertices;
 
@@ -119,6 +116,7 @@ void Graph::copyFrom(const Graph &graph) {
     }
 }
 
+// Deletes matrix
 void Graph::deallocate() {
     for(int row = 0; row < mNumVertices; row++) {
         delete [] mMatrix[row];
@@ -126,6 +124,7 @@ void Graph::deallocate() {
     delete mMatrix;
 }
 
+// Displays all edges (distances) in matrix
 void Graph::displayMatrix() {
     for(int i = 0; i < mNumVertices; i++) {
         for(int j = 0; j < mNumVertices; j++) {
@@ -135,10 +134,14 @@ void Graph::displayMatrix() {
     }
 }
 
+// Checks to see if a given vertex is adjacent
+// (Added helper function)
 bool is_adjacent(int **matrix, int row, int col, int max_weight) {
     return matrix[row][col] != max_weight;
 }
 
+// Used to check if there are any unvisited verticies
+// (Added helper function
 bool any(bool arr[], int size) {
     for (int i = 0; i < size; i++) {
         if (arr[i]) {
