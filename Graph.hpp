@@ -21,7 +21,7 @@ class Graph {
   Graph( const Graph &);
   
   // Destructor
-//  ~Graph( );
+  ~Graph();
 
   // Overloaded Assignment Operator
   const Graph & operator=(const Graph &);
